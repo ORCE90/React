@@ -1,4 +1,6 @@
 import React from 'react'
+import store from './redux/store'
+import { updateUser } from './redux/reducers/actions/updateUser'
 
 class Login extends React.Component {
     constructor() {
@@ -19,7 +21,10 @@ class Login extends React.Component {
         
 
     submit = () => {
-        alert (this.state.username + ' ' + this.state.password)
+        store.dispatch(updateUser(
+            this.state.username,
+            this.state.password
+            ))
     }
 
 

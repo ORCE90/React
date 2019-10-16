@@ -1,11 +1,18 @@
-import { createStore, combineReducers }  from 'redux' 
-import { userReducer} from './reducers/userReducer.js'
+import { createStore, combineReducers, applyMiddleware }  from 'redux' 
+import logger from 'redux-logger'
+import { userReducer } from './reducers/userReducer.js'
+
+
 
 const singleReducer = combineReducers({
     userReducer,
 })
+
 //Creates an empty stpre pbject = {}
-const store = createStore (singleReducer)
+const store = createStore (
+    singleReducer,
+    applyMiddleware(logger)
+    )
 
 console.log(store.getState())
 
