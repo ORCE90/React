@@ -4,8 +4,9 @@ import { Provider } from 'react-redux'
 import store from './redux/store.js'
 import Wrapper from './Wrapper'
 import UsersList from './UsersList'
-import Home  from './Home'
-import Login from "./Login"
+import Home from './Home'
+import Login from './Login'
+import Table from './Table'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 
 const app = document.getElementById('app')
@@ -20,7 +21,7 @@ const Menu = () => {
                 <Link to='/about'>About us</Link>
             </li>
             <li>
-                <Link to='/contact'>Contact us</Link>
+                <Link to='/users_list'>Users list</Link>
             </li>
             <li>
                 <Link to='/login'>Log in</Link>
@@ -32,14 +33,13 @@ const Menu = () => {
     )
 }
 
-
 const About = () => {
     return (<h1>Welcome to my about page!</h1>)
 }
+
 const Contact = () => {
     return (<h1>Welcome to my contact page!</h1>)
 }
-
 
 const Routes = () => {
     return (
@@ -48,20 +48,18 @@ const Routes = () => {
             <Switch>
                 <Route exact path='/' component={Home} />
                 <Route exact path='/about' component={About} />
-                <Route exact path='/contact' component={Contact} />
+                <Route exact path='/users_list' component={Table} />
                 <Route exact path='/login' component={Login} />
                 <Route
                     exact
                     path='/user'
-                    render={() => 
-                         <Wrapper 
-                         component={UsersList}
-                         methodType='GET'
-                         url='https://jsonplaceholder.typicode.com/users'
-
-                    /> 
-                        
-                }
+                    render={ () =>
+                        <Wrapper
+                            component={UsersList}
+                            methodType='GET'
+                            url='https://jsonplaceholder.typicode.com/users'
+                        />
+                    }
                 />
             </Switch>
         </Router>
@@ -78,6 +76,6 @@ const Routes = () => {
 } */
 
 ReactDOM.render(
-<Provider store= {store}>
-    <Routes />
-</Provider>, app)
+    <Provider store={store}>
+        <Routes />
+    </Provider>, app)

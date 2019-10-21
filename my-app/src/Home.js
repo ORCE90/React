@@ -3,7 +3,7 @@ import React from 'react'
 class Home extends React.Component {
     constructor () {
         super()
-        /* Initial state*/ 
+        /* Initial state */
         this.state = {
             show: false
         }
@@ -11,45 +11,23 @@ class Home extends React.Component {
 
     showOrHide = (event) => {
         console.log(event.target.id)
-
-        this.setState({ show: !this.state.show})
-         /* menuvanje na state so setState() metoda
+        /* menuvanje na state so setState() metoda
         otkako state-ot kje se smeni,
-        komponentata si go vika svojt render metod odnovo
-        (ASIHRONA e PAZETE!! noviot state moze da go procitate samo vo render i so callback)
-
-
-        /*if (!this.state.show) {
-            this.setState({show: true})
-        } else {
-            this.setState({show: false})  - mozhe i vaka !!!!!!
-        }*/
-
-       
+        komponentata si go vika svojot render metod odnovo
+        (ASINHRONA E, PAZETE! noviot state moze da go procitate
+            samo vo render i so callback) */
+        this.setState({ show: !this.state.show })
     }
 
-   
-    
-
-    /*Render method*/ 
+    /* Render method */
     render () {
-        
-       
-        
-        /*najnovite state i props gi citame tuka*/
-        /*let div = <div> Hello Semos! </div>
+        // najnovite state i props gi chitame tuka
 
-        /*if (this.state.show) {
-            div = null
-        }*/
-    
-
-        return (
-        <React.Fragment>
-            <button id='toggle'onClick={this.showOrHide}> Toggle me! </button>
-            {this.state.show ? <div> Hello Semos! </div> :null}
-        
-        </React.Fragment>
+        return  (
+            <React.Fragment>
+                <button id='toggle' onClick={this.showOrHide}>Toggle me!</button>
+                {this.state.show && <div> Hello Semos! </div>}
+            </React.Fragment>
         )
     }
 }
