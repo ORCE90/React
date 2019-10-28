@@ -5,16 +5,16 @@ export function writeUsersToStore (data) {
     }
 }
 
-export function addUsersToStore (data) {
+export function addUserToStore (user) {
     return {
-        type: 'SAVE_USERS',
-        payload: data
+        type: 'SAVE_USER',
+        payload: user
     }
 }
 
-export function removeUsersToStore (data) {
+export function removeUserFromStore (data) {
     return {
-        type: 'DELETE_USERS',
+        type: 'DELETE_USER',
         payload: data
     }
 }

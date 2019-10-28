@@ -21,7 +21,7 @@ const Menu = () => {
                 <Link to='/about'>About us</Link>
             </li>
             <li>
-                <Link to='/users_list'>Users list</Link>
+                <Link to='/users_list'>Users List</Link>
             </li>
             <li>
                 <Link to='/login'>Log in</Link>
